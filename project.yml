@@ -1,0 +1,27 @@
+name: CarthageDemo
+options:
+  bundleIdPrefix: demo
+  carthageBuildPath: Carthage/Build
+  findCarthageFrameworks: true
+
+targets:
+  Demo:
+    type: application
+    platform: iOS
+    deploymentTarget: 10.0
+    sources: 
+      - path: Classes
+    dependencies:
+      - carthage: SnapKit
+      - target: MyFramework
+        embed: false
+  MyFramework:
+    type: framework
+    platform: iOS
+    deploymentTarget: 10.0
+    settings:
+     SUPPORTS_MACCATALYST: NO
+    sources:
+      - path: Sources
+    dependencies:
+      - carthage: SnapKit
